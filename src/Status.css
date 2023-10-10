@@ -1,0 +1,74 @@
+.headingImg{
+   
+    max-height: 12px;
+}
+.boardHeading{
+    display: flex;
+    flex-direction: row;
+    width: 16vw;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap:12px;
+    padding: 6px 12px;
+
+}
+.Boards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items:center; */
+    padding: 40px ;
+    padding-top: 20px;
+    padding-right: 12px;
+    /* width: 100vw; */
+    gap:30px;
+}
+.Board{
+    width:fit-content;
+}
+.cText{
+    color: #000000;
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+#pluske{
+    justify-content: right;
+    gap:0;
+}
+.Cards{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* padding-left: 12px;
+    padding-right: 12px; */
+}
+.topBar{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items:center;
+    /* margin-left:40px ; */
+    /* padding: 40px ; */
+   
+    /* padding-right:4px; */
+    border-radius: 4px;
+    width: fit-content;
+    gap:  100 px;
+    border: .20px solid #000;
+}
+.randombar{
+    padding-left:40px;
+    padding-top: 40px;
+}
+.optionsImg{
+    max-height: 18px;
+    padding-left: 4px;
+    padding-right: 10px;
+}
+.button{
+    border:0px solid blue;
+    background-color: rgba(255, 255, 255, 0);
+}

@@ -1,0 +1,121 @@
+.cardBox {
+
+    display: flex;
+    flex-direction: column;
+    width: 16vw;
+    justify-content: left;
+    padding: 6px 12px;
+    background-color: #b4dcf1;
+    border-radius: 8px;
+    gap: 4px;
+    box-shadow: #000000;
+
+}
+
+.cardId {
+    color: #6C7077;
+    font-family: "Inter";
+    font-size: 12px;
+    font-style: "normal";
+    font-weight: 400;
+    line-height: "normal";
+}
+
+.cardTitle {
+    /* width: 241px; */
+    color: #000000;
+    font-family: "Inter";
+    font-size: 12px;
+    font-style: "normal";
+    font-weight: 400;
+    line-height: "normal";
+}
+
+.lowerBox {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: left;
+    /* padding: 6px 12px; */
+    /* background-color: #DDD; */
+    border-radius: 8px;
+    display: flex;
+    /* width: 113px; */
+    /* justify-content: space-between; */
+
+    gap: 5px;
+    align-items: center;
+}
+
+.userImg {
+    width: 32px;
+    height: 32px;
+
+}
+
+.tagImg {
+    max-height: 8px;
+    max-width: 8px;
+}
+
+.priorityImg {
+    max-height: 18px;
+    max-width: 18px;
+}
+
+.tagBox {
+
+    display: flex;
+    box-sizing: border-box;
+    padding: 3.5px 5px;
+    align-items: center;
+    height: 19px;
+    gap: 2px;
+    font-size: 9px;
+    /* border: 1px #000000 ; */
+    border-radius: 3px;
+    border: .20px solid #000;
+    /* outline-offset: -12px; */
+}
+
+.priorityBox {
+    display: flex;
+    height: 18px;
+    width: 18px;
+    /* box-sizing: border-box; */
+    justify-content: center;
+
+    align-items: center;
+    /* border: 1px #000000 ; */
+    border-radius: 3px;
+    border: .20px solid #000;
+    /* outline-offset: -12px; */
+}
+
+.cardBoxrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cardBoxin {
+    display: flex;
+    flex-direction: column;
+    /* width: 16vw; */
+    justify-content: left;
+    /* padding: 6px 12px; */
+    /* background-color: #b54141; */
+    border-radius: 8px;
+    gap: 4px;
+    max-width: 10vw;
+}
+
+.availableUser {
+    width: 8px;
+    height: 8px;
+    background-color: green;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 21px;
+    margin-top: -12px;
+}
