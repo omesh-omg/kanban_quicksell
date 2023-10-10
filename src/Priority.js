@@ -17,7 +17,7 @@ import usr1 from './usr1.png'
 
 
 
-const Priority = () => {
+const Priority = (props) => {
     // let todono = 0;
     const [todono, settodono] = useState();
     let usersdata = [''];

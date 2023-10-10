@@ -21,7 +21,8 @@
     padding-top: 20px;
     padding-right: 12px;
     /* width: 100vw; */
-    gap:30px;
+    gap:6px;
+    background-color: #F4F5F8;
 }
 .Board{
     width:fit-content;
@@ -41,7 +42,7 @@ line-height: normal;
 .Cards{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 6px;
     /* padding-left: 12px;
     padding-right: 12px; */
 }
@@ -56,17 +57,28 @@ line-height: normal;
     /* padding-right:4px; */
     border-radius: 4px;
     width: fit-content;
-    gap:  100 px;
+    /* gap:  100 px; */
     border: .20px solid #000;
 }
 .randombar{
+    background-color: white;
     padding-left:40px;
-    padding-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .optionsImg{
     max-height: 18px;
-    padding-left: 4px;
+    padding-left: 6px;
     padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.optionsImg2{
+    max-height: 18px;
+    padding-left: 4px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 .button{
     border:0px solid blue;

@@ -8,18 +8,11 @@ import done from './Done.png'
 import Cancelled from './canceled.png'
 import backlogimg from './backlog.png'
 import inprogressimg from './in progress.png'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
-const Status = () => {
-    const navigate = useNavigate();
+const Status = (props) => {
+    // const navigate = useNavigate();
     const [pref, setpref] = useState(localStorage.getItem('grouping'))
-    if (pref === 'user') {
-        navigate('/user');
-    }
-    if (pref === 'priority') {
-        navigate('/priority');
-    }
-    // let todono = 0;
     const [todono, settodono] = useState([]);
     let usersdata = [''];
     const [tick, setTick] = useState([]);
@@ -29,6 +22,8 @@ const Status = () => {
     const [cancelled, setcancelled] = useState([]);
     const [backlog, setbacklog] = useState([]);
     const [Order, setOrder] = useState(localStorage.getItem('order'));
+    const [users, setusers] = useState([]);
+    let available=true;
 
     // const [count, setCount] = useState(0);
     // let todonum = 0;
@@ -63,30 +58,8 @@ const Status = () => {
 
             const result = await response.json();
 
-
-            setTick(result.tickets);
-
-            // console.log("tickets", tick);
-
-
-            // settodolist( tick.filter((ele) => ele.status === 'Todo')) ;
-            // setTimeout(() => {
-
-            // }, 2000);
-
-            // // setTodonum((prevTodonum) => {
-            // //     const todolist = tick.filter((ele) => ele.status === 'Todo');
-            // //     console.log(todolist.length); // Now this will give you the expected result
-            // //     return todolist.length; // Return the new value for todonum
-            // //   });
-            // //   console.log(todolist.length);
-
-            // //     console.log(todolist);
-            // console.log(todolist.length);
-            // // todonum = todolist.length;
-            // setTodonum(todolist.length);
-            // console.log(todonum);
-
+        setTick(result.tickets);
+        setusers(result.users);
         } catch (error) {
             console.error("Error:", error);
         }
@@ -127,6 +100,12 @@ const Status = () => {
         backlogpre.sort((a, b) => a.title.localeCompare(b.title));
         donepre.sort((a, b) => a.title.localeCompare(b.title));
         cancelledpre.sort((a, b) => a.title.localeCompare(b.title));
+        
+        setTodonum(todopre);
+        setbacklog(backlogpre);
+        setcancelled(cancelledpre);
+        setdoneno(donepre);
+        setinProgressno(inprogresspre);
         }else  {
             
             todopre.sort((b, a) => parseInt(a.priority) - parseInt(b.priority));
@@ -134,6 +113,12 @@ const Status = () => {
         backlogpre.sort((b, a) => parseInt(a.priority) - parseInt(b.priority));
         donepre.sort((b, a) => parseInt(a.priority) - parseInt(b.priority));
         cancelledpre.sort((b, a) => parseInt(a.priority) - parseInt(b.priority));
+        
+        setTodonum(todopre);
+        setbacklog(backlogpre);
+        setcancelled(cancelledpre);
+        setdoneno(donepre);
+        setinProgressno(inprogresspre);
         }
         
         // console.clear();
@@ -174,12 +159,25 @@ const Status = () => {
                 </div>
 
                 <div className='Cards'>
+                          
+                               
 
                     {
                         backlog.length > 0 &&
                         backlog.map((ticket) => {
+                            users.map((item) => {
+                               
+                                    if(
+                                        ticket &&
+                                         item.id === ticket.userId){
+                                            available=item.available;
+                                    }                                                    
+                               
+                            })
+                        
+
                             return (
-                                (ticket && <Card ticket={ticket}></Card>)
+                                (ticket.status === "Backlog" && <Card ticket={ticket} available={available}></Card>)
                             )
                         })
                     }
@@ -204,14 +202,17 @@ const Status = () => {
                     {
                         todonum.length > 0 &&
                         todonum.map((ticket) => {
-                            // { ticket.status === "Todo" && (settodono(todono + 1)) }
-                            // if(ticket.status === "Todo"){
-                            //     settodono(todono+1)
-                            // }
-                            // console.log(todono)
-
+                            users.map((item) => {
+                               
+                                if(
+                                    ticket &&
+                                     item.id === ticket.userId){
+                                        available=item.available;
+                                }                                                    
+                           
+                        })
                             return (
-                                (ticket.status === "Todo" && <Card ticket={ticket}></Card>)
+                                (ticket.status === "Todo" && <Card ticket={ticket} available={available}></Card>)
                             )
                         })
                     }
@@ -238,8 +239,17 @@ const Status = () => {
                     {
                         inProgressno.length > 0 &&
                         inProgressno.map((ticket) => {
+                            users.map((item) => {
+                               
+                                if(
+                                    ticket &&
+                                     item.id === ticket.userId){
+                                        available=item.available;
+                                }                                                    
+                           
+                        })
                             return (
-                                (ticket.status === "In progress" && <Card ticket={ticket}></Card>)
+                                (ticket.status === "In progress" && <Card ticket={ticket} available={available}></Card>)
                             )
                         })
                     }
@@ -264,8 +274,18 @@ const Status = () => {
                     {
                         doneno.length > 0 &&
                         doneno.map((ticket) => {
+                            users.map((item) => {
+                               
+                                if(
+                                    ticket &&
+                                     item.id === ticket.userId){
+                                        available=item.available;
+                                     
+                                }                                                    
+                           
+                        })
                             return (
-                                (ticket.status === "Done" && <Card ticket={ticket}></Card>)
+                                (ticket.status === "Done" && <Card ticket={ticket} available={available}></Card>)
                             )
                         })
                     }
@@ -290,8 +310,18 @@ const Status = () => {
                     {
                         cancelled.length > 0 &&
                         cancelled.map((ticket) => {
+                            users.map((item) => {
+                               
+                                if(
+                                    ticket &&
+                                     item.id === ticket.userId){
+                                        available=item.available;
+                                    
+                                }                                                    
+                           
+                        })
                             return (
-                                (ticket.status === "Canceled" && <Card ticket={cancelled}></Card>)
+                                (ticket.status === "Cancelled" && <Card ticket={ticket} available={available}></Card>)
                             )
                         })
                     }

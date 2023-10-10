@@ -6,19 +6,21 @@ import optionsimg from './options.png'
 import './Dropdown.css'
 import dropdownimg from './dropdown.png'
 import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+// import { Link, Navigate, useNavigate } from 'react-router-dom';
 // import {useNavigate} from 'react-router-dom';
 
-function Dropdown() {
-  const navigate = useNavigate();
-  const [groupBy, setgroupBy] = useState("Status");
-  const [orderBy, setorderBy] = useState("Priority");
-  const [selectedValue, setSelectedValue] = useState('');
+function Dropdown(props) {
+  // const navigate = useNavigate();
+  // const [groupBy, setgroupBy] = useState("Status");
+  // const [orderBy, setorderBy] = useState("Priority");
+  const [selectedValue, setSelectedValue] = useState(localStorage.getItem('grouping'));
+  const [selectedValueorder, setSelectedValueorder] = useState(localStorage.getItem('order'));
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
-    navigate('/'+event.target.value);
+    // navigate('/'+event.target.value);
     // localStorage.clear();
+    props.setGroupingValue(`${event.target.value}`);
     localStorage.setItem('grouping', `${event.target.value}`);
     
   };
@@ -27,26 +29,28 @@ function Dropdown() {
     //set item();
   };
   const handleSelectChangeorder = (event) => {
-    setSelectedValue(event.target.value);
+    setSelectedValueorder(event.target.value);
     console.log(`${event.target.value}`);
-    
+    props.setOrderingValue(`${event.target.value}`);
+    // setorderBy(event.target.value);
     // localStorage.clear();
     localStorage.setItem('order', `${event.target.value}`);
     
   };
+
   return (
     <>
       <div className='dropdown'>
         <ul>Grouping <div>
-          <select name="pets" id="pet-select" value={selectedValue} onChange={handleSelectChange} >
-            <option value=""  >Status</option>
-            <option value="priority" ><Link to="/priority">Priority</Link></option>
-            <option value="user"><Link to="/byuser">User</Link></option>
+          <select name="grouping"  value={selectedValue} onChange={handleSelectChange} >
+            <option value="status"  >Status</option>
+            <option value="priority" >Priority</option>
+            <option value="user">User</option>
           </select>
         </div>
         </ul>
         <ul>Ordering <div>
-          <select name="pets" id="pet-select" value={selectedValue} onChange={handleSelectChangeorder} >
+          <select name="ordering"  value={selectedValueorder} onChange={handleSelectChangeorder} >
 
             <option value="Priority">Priority</option>
             <option value="Title">Title</option>

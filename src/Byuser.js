@@ -17,28 +17,16 @@ import usr1 from './usr1.png'
 
 
 
-const Priority = () => {
+const Byuser = (props) => {
     // let todono = 0;
     const [todono, settodono] = useState();
     let usersdata = [''];
+    let available=true;
     const [tick, setTick] = useState([{ "id": "CAM" }]);
     const [users, setusers] = useState([{ "id": "CAM" }])
-    const [nopriority, setnopriority] = useState([]);
-    const [lowpriority, setlowpriority] = useState([]);
-    const [hightpriority, sethightpriority] = useState([]);
-    const [mediumpriority, setmediumpriority] = useState([]);
-    const [urgent, seturgent] = useState([]);
+  
     const [usermass, setusermass] = useState([]);
-    const [Order, setOrder] = useState(localStorage.getItem('order'));
-    // const [temp, settemp] = useState([]);
-
-    // const [backlog, setbacklog] = useState([]);
-
-    // const [count, setCount] = useState(0);
-    // let todonum = 0;
-    const [todonum, setTodonum] = useState(0);
-
-    // const [first, setfirst] = useState(second)
+    const [Order, setOrder] = useState(localStorage.getItem('order')); 
 
     useEffect(() => {
 
@@ -48,7 +36,7 @@ const Priority = () => {
     useEffect(() => {
         // useridfunc();
         count();
-    }, [tick,users])
+    }, [tick,users,props.order])
 
 
     async function hello() {
@@ -73,10 +61,6 @@ const Priority = () => {
 
     function count() {
         let masspre = [];
-        // let lowprioritypre=[];
-        // let mediumprioritypre=[];
-        // let hightprioritypre=[];
-        // let urgetnpre=[];
         users.forEach((user) => {
             let temp = [];
             tick.forEach((ticket) => {
@@ -88,7 +72,7 @@ const Priority = () => {
             }
 
             )
-            if(Order==="Title"){
+            if(props.order==="Title"){
                 temp.sort((a, b) => a.title.localeCompare(b.title));
             
             }else{
@@ -96,31 +80,18 @@ const Priority = () => {
                 temp.sort((b, a) => parseInt(a.priority) - parseInt(b.priority));
            
             }
-            // console.log("temp",temp);
+            
             masspre.push(temp);
-            // let xt=[];
-            // settemp(xt);
+           
         })
 
         setusermass(masspre);
-        // console.log("lasfls");
-        // console.table("usermass", usermass);
-
+        
+        console.log("hello this is by user");
+        
     }
 
-
-    // let tempx = [];
-
-
-
-
-    // count();
-
-
-
-
-
-    return (
+  return (
         <div className='Boards'>
             {usermass.map((user) => {
                 return (
@@ -136,6 +107,7 @@ const Priority = () => {
                                         if(
                                             user[0] &&
                                              item.id === user[0].userId){
+                                                available=item.available;
                                             return(
                                                 <p className='cText' style={{ width: "500px" }}>{item.name}</p>
                                             )
@@ -145,11 +117,6 @@ const Priority = () => {
                                     // ) : null;
                                 })
                             }
-
-                            {/* <p>{console.log(tempx[0])}</p> */}
-
-
-                            {/* <p>{users[0].id}</p> */}
                             <p className='cText'>{user.length}</p>
                             <div className='boardHeading' id='pluske'>
 
@@ -165,7 +132,7 @@ const Priority = () => {
                                 user.length > 0 &&
                                 user.map((ticket) => {
                                     return (
-                                        (<Card ticket={ticket}></Card>)
+                                        (<Card ticket={ticket} available={available}></Card>)
                                     )
                                 })
                             }
@@ -174,10 +141,8 @@ const Priority = () => {
                     </div>
                 );
             })}
-            {/* //kjsahf */}
-            
-        </div>
+            </div>
     )
 }
 
-export default Priority
+export default Byuser
