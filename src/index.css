@@ -16,3 +16,23 @@ code {
   font-family: inter, 'Courier New',
     monospace;
 }
+
+@media screen and (max-width:600px) {
+  html{
+    width: 100vw;
+  }
+  body {
+    transform: scale(1);
+    /* margin: 0; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* min-height: 100vh; */
+    /* max-width: 100vw; */
+    background-color: #F4F5F8;
+    /* min-width: 100%; */
+  }
+  
+}

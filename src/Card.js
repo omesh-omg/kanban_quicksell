@@ -9,6 +9,11 @@ import img4 from './urgent.png'
 import img3 from './high.png'
 import img2 from './medium.png'
 import img1 from './low.png'
+import done from './Done.png'
+import Cancelled from './canceled.png'
+import backlogimg from './backlog.png'
+import inprogressimg from './in progress.png'
+import todo from './to do.png'
 
 // import img from 
 
@@ -19,6 +24,7 @@ const Card = (props) => {
     let imgt=`imgr${props.ticket.priority.toString()}`;
     // console.log(imgt);
     let dotuser;
+    
     const [users, setusers] = useState([]);
     const [tick, setTick] = useState([]);
 
@@ -51,6 +57,14 @@ const Card = (props) => {
         3: img3,
         4: img4,
       };
+    const statusImageMap={
+        "Todo": todo,
+        "In progress":inprogressimg,
+        "Backlog":backlogimg,
+        "Done":done,
+        "Cancelled":Cancelled,
+
+    }
       useEffect(() => {
         users.map((user) => {
                                
@@ -65,6 +79,7 @@ const Card = (props) => {
       
       
       const imgSrc = priorityImageMap[props.ticket.priority] || img0;
+      const statusImgSrc=statusImageMap[props.ticket.status]||todo;
     if(available===true){
         dotuser=<div className='availableUser' />;
 
@@ -79,7 +94,7 @@ const Card = (props) => {
             <div className='cardBoxrow'>
                 <div className='cardBoxin'>
                     <text className='cardId'>{props.ticket.id}</text>
-                    <text className='cardTitle'>{props.ticket.title}</text>
+                    <text className='cardTitle'><img  src={statusImgSrc}></img>{props.ticket.title}</text>
                 </div >
                 <div style={{ height: "38px" }}>
                     <img className='userImg' src={usr1} alt='' />
