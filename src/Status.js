@@ -8,6 +8,7 @@ import done from './Done.png'
 import Cancelled from './canceled.png'
 import backlogimg from './backlog.png'
 import inprogressimg from './in progress.png'
+import CardStatus from './CardStatus';
 // import { useNavigate } from 'react-router-dom';
 
 const Status = (props) => {
@@ -177,7 +178,7 @@ const Status = (props) => {
                         
 
                             return (
-                                (ticket.status === "Backlog" && <Card ticket={ticket} available={available}></Card>)
+                                (ticket.status === "Backlog" && <CardStatus ticket={ticket} available={available}></CardStatus>)
                             )
                         })
                     }
@@ -212,7 +213,7 @@ const Status = (props) => {
                            
                         })
                             return (
-                                (ticket.status === "Todo" && <Card ticket={ticket} available={available}></Card>)
+                                (ticket.status === "Todo" && <CardStatus ticket={ticket} available={available}></CardStatus>)
                             )
                         })
                     }
@@ -249,7 +250,7 @@ const Status = (props) => {
                            
                         })
                             return (
-                                (ticket.status === "In progress" && <Card ticket={ticket} available={available}></Card>)
+                                (ticket.status === "In progress" && <CardStatus ticket={ticket} available={available}></CardStatus>)
                             )
                         })
                     }
@@ -285,7 +286,7 @@ const Status = (props) => {
                            
                         })
                             return (
-                                (ticket.status === "Done" && <Card ticket={ticket} available={available}></Card>)
+                                (ticket.status === "Done" && <CardStatus ticket={ticket} available={available}></CardStatus>)
                             )
                         })
                     }
@@ -321,7 +322,7 @@ const Status = (props) => {
                            
                         })
                             return (
-                                (ticket.status === "Cancelled" && <Card ticket={ticket} available={available}></Card>)
+                                (ticket.status === "Cancelled" && <CardStatus ticket={ticket} available={available}></CardStatus>)
                             )
                         })
                     }

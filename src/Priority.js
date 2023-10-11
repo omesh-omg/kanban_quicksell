@@ -14,6 +14,7 @@ import highimg from './high.png'
 import mediumimg from './medium.png'
 import lowimg from './low.png'
 import usr1 from './usr1.png'
+import CardPriority from './CardPriority';
 
 
 
@@ -123,7 +124,7 @@ return (
                         nopriority.length > 0 &&
                         nopriority.map((ticket) => {
                             return (
-                                (ticket.priority === 0 && <Card  ticket={ticket}></Card>)
+                                (ticket.priority === 0 && <CardPriority  ticket={ticket}></CardPriority>)
                             )
                         })     
                     }
@@ -155,7 +156,7 @@ return (
                             // console.log(todono)
 
                             return (
-                                (ticket.priority === 4 && <Card ticket={ticket}></Card>)
+                                (ticket.priority === 4 && <CardPriority ticket={ticket}></CardPriority>)
                             )
                         })
                     }
@@ -181,7 +182,7 @@ return (
                         hightpriority.length > 0 &&
                         hightpriority.map((ticket) => {
                             return (
-                                (ticket.priority === 3 && <Card ticket={ticket}></Card>)
+                                (ticket.priority === 3 && <CardPriority ticket={ticket}></CardPriority>)
                             )
                         })
                     }
@@ -207,7 +208,7 @@ return (
                         mediumpriority.length > 0 &&
                         mediumpriority.map((ticket) => {
                             return (
-                                (ticket.priority === 2 && <Card ticket={ticket}></Card>)
+                                (ticket.priority === 2 && <CardPriority ticket={ticket}></CardPriority>)
                             )
                         })
                     }
@@ -233,7 +234,7 @@ return (
                         lowpriority.length > 0 &&
                         lowpriority.map((ticket) => {
                             return (
-                                (ticket.priority === 1 && <Card ticket={ticket} ></Card>)
+                                (ticket.priority === 1 && <CardPriority ticket={ticket} ></CardPriority>)
                             )
                         })
                     }

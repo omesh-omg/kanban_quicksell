@@ -24,7 +24,7 @@ import usr7 from './usr-7.png'
 
 // import img from 
 
-const CardUser = (props) => {
+const CardStatus = (props) => {
     // let available = true;
     const [available, setavailable] = useState(false);
     // console.log({props});
@@ -110,12 +110,14 @@ const CardUser = (props) => {
             <div className='cardBoxrow'>
                 <div className='cardBoxin'>
                     <text className='cardId'>{props.ticket.id}</text>
-                    <text className='cardTitle'><img  src={statusImgSrc}></img>{props.ticket.title}</text>
+                    <text className='cardTitle'>
+                        {/* <img  src={statusImgSrc}></img> */}
+                        {props.ticket.title}</text>
                 </div >
-                {/* <div style={{ height: "38px" }}>
+                <div style={{ height: "38px" }}>
                     <img className='userImg' src={usrImage} alt='' />
                     {dotuser}
-                </div> */}
+                </div>
             </div>
 
 
@@ -132,4 +134,4 @@ const CardUser = (props) => {
     );
 };
 
-export default CardUser;
+export default CardStatus;

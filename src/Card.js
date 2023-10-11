@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Card.css';
 import logo from './logo.svg';
-import usr1 from './usr1.png'
+
 import priority from './priority.svg';
 import tag from './tag.png'
 import img0 from './nopriority.png'
@@ -14,6 +14,13 @@ import Cancelled from './canceled.png'
 import backlogimg from './backlog.png'
 import inprogressimg from './in progress.png'
 import todo from './to do.png'
+import usr1 from './usr-1.png'
+import usr2 from './usr-2.png'
+import usr3 from './usr-3.png'
+import usr4 from './usr-4.png'
+import usr5 from './usr-5.png'
+import usr6 from './usr-6.png'
+import usr7 from './usr-7.png'
 
 // import img from 
 
@@ -65,6 +72,15 @@ const Card = (props) => {
         "Cancelled":Cancelled,
 
     }
+    const usrImageMap = {
+        "usr-1": usr1,
+        "usr-2": usr2,
+        "usr-3": usr3,
+        "usr-4": usr4,
+        "usr-5": usr5,
+        "usr-6": usr6,
+        "usr-7": usr7,
+      };
       useEffect(() => {
         users.map((user) => {
                                
@@ -77,7 +93,7 @@ const Card = (props) => {
       }, [users])
       
       
-      
+      const usrImage=usrImageMap[props.ticket.userId]||usr1;
       const imgSrc = priorityImageMap[props.ticket.priority] || img0;
       const statusImgSrc=statusImageMap[props.ticket.status]||todo;
     if(available===true){
@@ -97,7 +113,7 @@ const Card = (props) => {
                     <text className='cardTitle'><img  src={statusImgSrc}></img>{props.ticket.title}</text>
                 </div >
                 <div style={{ height: "38px" }}>
-                    <img className='userImg' src={usr1} alt='' />
+                    <img className='userImg' src={usrImage} alt='' />
                     {dotuser}
                 </div>
             </div>

@@ -13,7 +13,15 @@ import urgentimg from './urgent.png'
 import highimg from './high.png'
 import mediumimg from './medium.png'
 import lowimg from './low.png'
-import usr1 from './usr1.png'
+import CardUser from './Card1.js'
+
+import usr1 from './usr-1.png'
+import usr2 from './usr-2.png'
+import usr3 from './usr-3.png'
+import usr4 from './usr-4.png'
+import usr5 from './usr-5.png'
+import usr6 from './usr-6.png'
+import usr7 from './usr-7.png'
 
 
 
@@ -90,6 +98,15 @@ const Byuser = (props) => {
         console.log("hello this is by user");
         
     }
+    const usrImageMap = {
+        "usr-1": usr1,
+        "usr-2": usr2,
+        "usr-3": usr3,
+        "usr-4": usr4,
+        "usr-5": usr5,
+        "usr-6": usr6,
+        "usr-7": usr7,
+      };
 
   return (
         <div className='Boards'>
@@ -97,7 +114,7 @@ const Byuser = (props) => {
                 return (
                     <div className='Board'>
                         <div className='boardHeading'>
-                            <img src={usr1} className='headingImg2' alt=''></img>
+                            <img src={user[0] && usrImageMap[user[0].userId]||usr1} className='headingImg2' alt=''></img>
                             {
                                 // console.log("isko dekho",user)
                                 
@@ -132,7 +149,7 @@ const Byuser = (props) => {
                                 user.length > 0 &&
                                 user.map((ticket) => {
                                     return (
-                                        (<Card ticket={ticket} available={available}></Card>)
+                                        (<CardUser ticket={ticket} available={available}></CardUser     >)
                                     )
                                 })
                             }

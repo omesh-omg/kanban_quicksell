@@ -24,7 +24,7 @@ import usr7 from './usr-7.png'
 
 // import img from 
 
-const CardUser = (props) => {
+const CardPriority = (props) => {
     // let available = true;
     const [available, setavailable] = useState(false);
     // console.log({props});
@@ -112,15 +112,15 @@ const CardUser = (props) => {
                     <text className='cardId'>{props.ticket.id}</text>
                     <text className='cardTitle'><img  src={statusImgSrc}></img>{props.ticket.title}</text>
                 </div >
-                {/* <div style={{ height: "38px" }}>
+                <div style={{ height: "38px" }}>
                     <img className='userImg' src={usrImage} alt='' />
                     {dotuser}
-                </div> */}
+                </div>
             </div>
 
 
             <div className='lowerBox'>
-                <div className='priorityBox'><img className='priorityImg' src={imgSrc} alt='logo' /></div>
+                {/* <div className='priorityBox'><img className='priorityImg' src={imgSrc} alt='logo' /></div> */}
 
                 <div className='tagBox'>
                     <img className='tagImg' src={tag} alt='logo' />
@@ -132,4 +132,4 @@ const CardUser = (props) => {
     );
 };
 
-export default CardUser;
+export default CardPriority;
