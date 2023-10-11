@@ -97,7 +97,7 @@ const Byuser = (props) => {
                 return (
                     <div className='Board'>
                         <div className='boardHeading'>
-                            <img src={usr1} className='headingImg' alt=''></img>
+                            <img src={usr1} className='headingImg2' alt=''></img>
                             {
                                 // console.log("isko dekho",user)
                                 

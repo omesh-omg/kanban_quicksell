@@ -2,6 +2,10 @@
    
     max-height: 12px;
 }
+.headingImg2{
+   
+    max-height: 24px;
+}
 .boardHeading{
     display: flex;
     flex-direction: row;
@@ -62,6 +66,7 @@ line-height: normal;
     background-color: #ffffff;
     /* gap:  100 px; */
     /* border: .20px solid #000; */
+    padding:4px;
     filter: drop-shadow(0px 1px 3px rgba(138, 138, 138, 0.434));
 }
 .randombar{
