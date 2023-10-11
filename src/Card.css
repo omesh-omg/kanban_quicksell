@@ -160,7 +160,7 @@
 @media screen and (max-width:600px) {
     
     .cardBox{
-        width:-webkit-fill-available;
+        width: 350px;;
         /* min-width: 500px; */
 
 
@@ -176,7 +176,7 @@
         font-style: "normal";
         font-weight: 600;
         line-height: "normal";
-        width:vw;
+        width:-webkit-fill-available;
     }
     .cardBoxin {
         display: flex;

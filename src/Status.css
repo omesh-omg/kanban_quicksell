@@ -110,13 +110,15 @@ line-height: normal;
         padding: 30px ;
         padding-top: 20px;
         padding-right: 30px;
-        width: 300px;
+        /* width:400px; */
         gap:6px;
         background-color: #F4F5F8;
     }
     .boardHeading{
-        width:-webkit-fill-available;
+        /* justify-content: center; */
+        
         background-color: azure;
+        width: 350px;
     }
     .randombar{
         
@@ -125,7 +127,7 @@ line-height: normal;
     }
     .Board{
         
-        min-width:400px;
+        min-width:300px;
     }
     .cardBox{
         /* min-width: 400; */

@@ -41,7 +41,7 @@ function App() {
     content = <Byuser order={Order} />;
   }
   return (
-    <div >
+    <div className='fullBody'>
 
       <Navbar order={Order} grouping={Grouping} setGroupingValue={setGroupingValue} setOrderingValue={setOrderingValue}></Navbar>
       {content}
