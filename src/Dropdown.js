@@ -49,9 +49,8 @@ function Dropdown(props) {
           </select>
         </div>
         </ul>
-        <ul>Ordering <div>
-          <select name="ordering"  value={selectedValueorder} onChange={handleSelectChangeorder} >
-
+        <ul>Ordering<div>
+            <select name="ordering"  value={selectedValueorder} onChange={handleSelectChangeorder} >
             <option value="Priority">Priority</option>
             <option value="Title">Title</option>
           </select>

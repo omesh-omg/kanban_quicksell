@@ -94,5 +94,6 @@ line-height: normal;
 }
 .button{
     border:0px solid blue;
+    font-size: 16px;
     background-color: rgba(255, 255, 255, 0);
 }

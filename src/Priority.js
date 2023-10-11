@@ -101,20 +101,8 @@ const Priority = (props) => {
         seturgent(urgetnpre);
 
     }
-
-
     
-
-
-
-
-    // count();
-
-
-
-
-
-    return (
+return (
         <div className='Boards'>
             <div className='Board'>
                 <div className='boardHeading'>
@@ -245,7 +233,7 @@ const Priority = (props) => {
                         lowpriority.length > 0 &&
                         lowpriority.map((ticket) => {
                             return (
-                                (ticket.priority === 1 && <Card ticket={ticket}></Card>)
+                                (ticket.priority === 1 && <Card ticket={ticket} ></Card>)
                             )
                         })
                     }

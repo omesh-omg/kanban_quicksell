@@ -28,6 +28,9 @@
   justify-content: space-between;
   align-items: center;
   margin:0px;
+  font-family: inter;
+  font-weight: 400;
+  color: #747474;
   padding-top: 13px;
   padding-left: 16px;
   padding-right: 16px;
@@ -39,12 +42,17 @@
   width:90px;
   justify-content: space-between;
   align-items: center;
-  padding: 2px;
+  padding: 4px;
+  font-size: 16px;
   /* border:.8px solid black; */
   border-radius: 4px;
   border: none;
   filter: drop-shadow(0px 1px 1px rgba(12, 12, 12, 0.434));
 
+}
+.dropdown ul option{
+  padding: 4px;
+  font-size: 16px;
 }
 .dropdown ul div img{
   padding-right: 0px;

@@ -14,12 +14,36 @@ import img1 from './low.png'
 
 const Card = (props) => {
     // let available = true;
-    const [available, setavailable] = useState(true);
+    const [available, setavailable] = useState(false);
     // console.log({props});
     let imgt=`imgr${props.ticket.priority.toString()}`;
     // console.log(imgt);
     let dotuser;
+    const [users, setusers] = useState([]);
+    const [tick, setTick] = useState([]);
 
+    useEffect(() => {
+
+        hello();
+        // count();
+
+
+    }, []);
+
+    async function hello() {
+        try {
+            const response = await fetch("https://api.quicksell.co/v1/internal/frontend-assignment");
+
+            const result = await response.json();
+
+        setTick(result.tickets);
+        setusers(result.users);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+
+
+    }
     const priorityImageMap = {
         0: img0,
         1: img1,
@@ -27,10 +51,21 @@ const Card = (props) => {
         3: img3,
         4: img4,
       };
-    
+      useEffect(() => {
+        users.map((user) => {
+                               
+            if(
+                props.ticket &&
+                 user.id === props.ticket.userId){
+                    setavailable(user.available);
+                
+            }  })   
+      }, [users])
+      
+      
       
       const imgSrc = priorityImageMap[props.ticket.priority] || img0;
-    if(props.available===true){
+    if(available===true){
         dotuser=<div className='availableUser' />;
 
     }else{
