@@ -14,6 +14,8 @@ import highimg from './high.png'
 import mediumimg from './medium.png'
 import lowimg from './low.png'
 import CardUser from './Card1.js'
+import availableimg from './availableimg.png'
+import notavailableimg from './notavailableimg.png'
 
 import usr1 from './usr-1.png'
 import usr2 from './usr-2.png'
@@ -107,6 +109,8 @@ const Byuser = (props) => {
         "usr-6": usr6,
         "usr-7": usr7,
       };
+      let dotuser;
+      
 
   return (
         <div className='Boards'>
@@ -115,6 +119,7 @@ const Byuser = (props) => {
                     <div className='Board'>
                         <div className='boardHeading'>
                             <img src={user[0] && usrImageMap[user[0].userId]||usr1} className='headingImg2' alt=''></img>
+                            
                             {
                                 // console.log("isko dekho",user)
                                 
@@ -125,6 +130,7 @@ const Byuser = (props) => {
                                             user[0] &&
                                              item.id === user[0].userId){
                                                 available=item.available;
+                                                
                                             return(
                                                 <p className='cText' style={{ width: "500px" }}>{item.name}</p>
                                             )
@@ -134,7 +140,15 @@ const Byuser = (props) => {
                                     // ) : null;
                                 })
                             }
+                            
+                               
                             <p className='cText'>{user.length}</p>
+                            {
+                            available && <img src={availableimg} className='dot'  />
+                            }
+                            {
+                                (!available)&&<img src={notavailableimg} className='dot' />
+                            }
                             <div className='boardHeading' id='pluske'>
 
                                 <img src={plusmore} className='headingImg' alt=''></img>

@@ -110,7 +110,7 @@ const Card = (props) => {
             <div className='cardBoxrow'>
                 <div className='cardBoxin'>
                     <text className='cardId'>{props.ticket.id}</text>
-                    <text className='cardTitle'><img  src={statusImgSrc}></img>{props.ticket.title}</text>
+                    <text className='cardTitle'><img  src={statusImgSrc} ></img>{props.ticket.title}</text>
                 </div >
                 <div style={{ height: "38px" }}>
                     <img className='userImg' src={usrImage} alt='' />
