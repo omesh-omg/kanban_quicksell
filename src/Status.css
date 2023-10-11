@@ -4,7 +4,7 @@
 }
 .headingImg2{
    
-    max-height: 24px;
+    max-height: 28px;
 }
 .boardHeading{
     display: flex;
@@ -42,6 +42,8 @@ font-size: 12px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
+z-index: 2;
+
 }
 #pluske{
     justify-content: right;
