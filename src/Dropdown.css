@@ -11,6 +11,7 @@
   min-width: 80px;
   width: 16vw;
   height: fit-content;
+  min-width: 200px;
   max-width: 250px;
   max-height: 390px;
   overflow-y: auto;
@@ -38,8 +39,11 @@
   width:90px;
   justify-content: space-between;
   align-items: center;
+  padding: 2px;
   /* border:.8px solid black; */
   border-radius: 4px;
+  border: none;
+  filter: drop-shadow(0px 1px 1px rgba(12, 12, 12, 0.434));
 
 }
 .dropdown ul div img{
